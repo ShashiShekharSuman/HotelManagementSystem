@@ -1,6 +1,5 @@
 package entities;
 
-import controllers.Sql;
 
 import java.util.Date;
 

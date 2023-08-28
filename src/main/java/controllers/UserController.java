@@ -1,21 +1,45 @@
 package controllers;
 
-import entities.User;
-
-import java.util.Date;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 
 public class UserController {
 
-    private Sql sql;
+    private final Sql sql;
+    
+    public UserController() {
+        this.sql = Sql.getInstance();
+    }
+    
+    public void registerUser(String firstName, String lastName, String email, String password, Long mobile, String dob, String address) {
+        Map<String, Object> user = new HashMap<>();
+        user.put("first_name", (Object) firstName);
+        user.put("last_name", (Object) lastName);
+        user.put("email", (Object) email);
+        user.put("password", (Object) password);
+        user.put("mobile", (Object) mobile);
+        user.put("dob", (Object) dob);
+        user.put("address", (Object) address);
 
-    public void registerUser(String firstName, String lastName, String email, String password, long mobile, String dob, String address) {
-        Sql sql = Sql.getInstance();
-        sql.openConnection();
-        String query = String.format (
-                "INSERT INTO users (first_name, last_name, email, password, mobile, dob, address) values ('%s', '%s', '%s', '%s', %d, '%s', '%s')",
-                firstName, lastName, email, password, mobile, dob, address
-        );
-        sql.executeUpdate(query);
-        sql.closeConnection();
+        try {
+            sql.insertInto("users", user);
+            JOptionPane.showMessageDialog(null, "User created successfully");
+        }
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+    }
+    
+    public void setPassword (String email, String password) {
+        try {
+            String whereClause =  "email = '" + email + "'";
+            sql.update("users", Map.ofEntries(Map.entry("password", (Object) password)), whereClause);
+            JOptionPane.showMessageDialog(null, "Password set successfully");
+        }
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
     }
 }
