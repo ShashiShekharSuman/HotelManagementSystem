@@ -1,16 +1,9 @@
-import java.sql.*;
-import javax.swing.JOptionPane;
-import project.*;
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package gui;
 
-/**
- *
- * @author mohikuma
- */
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class CustomerCheckOut extends javax.swing.JFrame {
 
     /**
@@ -215,63 +208,63 @@ public class CustomerCheckOut extends javax.swing.JFrame {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-        ResultSet rs = Select.getData("select * from customer where checkout is NULL");
-        DefaultTableModel model=(DefaultTableModel)jTable.getModel1();
-        try
-        {
-            while(rs.next())
-            {
-                model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13)});
-            }
-            rs.close();
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(null,e);
-        }
+//        ResultSet rs = Select.getData("select * from customer where checkout is NULL");
+//        DefaultTableModel model=(DefaultTableModel)jTable.getModel1();
+//        try
+//        {
+//            while(rs.next())
+//            {
+//                model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13)});
+//            }
+//            rs.close();
+//        }
+//        catch(Exception e)
+//        {
+//            JOptionPane.showMessageDialog(null,e);
+//        }
     }//GEN-LAST:event_formComponentShown
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String roomNo = jTextField1.getText();
-        try
-        {
-            ResultSet rs = Select.getData("Select * from customer where roomNo='"+roomNo+"' and checkout is NULL");
-            if(rs.next())
-            {
-                jTextField1.setEditable(false);
-                id = rs.getInt(1);
-                jTextField2.setText(rs.getString(2));
-                jTextField2.setText(rs.getString(9));
-                jTextField2.setText(rs.getString(3));
-                jTextField2.setText(rs.getString(13));
-                
-                SimpleDateFormat myFormat = new SimpleDateFormat("YYYY/MM/DD");
-                Calendar cal = Calendar.getInstance();
-                jTextField4.setText(myFormat.format(cal.getTime()));
-                String dateBeforeString=rs.getString(9);
-                java.util.Date dateBefore=myFormat.parse(dateBeforeString);
-                String dateAfterString=myFormat.format(cal.getTime());
-                java.util.Date dateAfter=myFormat.parse(dateAfterString);
-                long difference = dateAfter.getTime() - dateBefore.getTime();
-                int noOfDayStay=(int) (difference/(1000860*60*24));
-                if(noOfDayStay==0)
-                    noOfDayStay=1;
-                jTextField7.setText(String.valueOf(noOfDayStay));
-                float Price-Float.parseFloat(jTextField6>getText());
-                
-                jTextField8.setText(String.valueOf(noOfDayStay*price));
-                jTextField9.setText(rs.getString(6));
-                roomType=rs.getString(12);
-                bed=rs.getString(11);
-            }
-            else
-                JOptionPane.showMessageDialog(null, "Room Number is not Booked or Room Number Does not Exist");
-        }
-        catch(Exception e)
-        {
-            JoptionPane.showMessageDialog(null,e);
-        }
+//        String roomNo = jTextField1.getText();
+//        try
+//        {
+//            ResultSet rs = Select.getData("Select * from customer where roomNo='"+roomNo+"' and checkout is NULL");
+//            if(rs.next())
+//            {
+//                jTextField1.setEditable(false);
+//                id = rs.getInt(1);
+//                jTextField2.setText(rs.getString(2));
+//                jTextField2.setText(rs.getString(9));
+//                jTextField2.setText(rs.getString(3));
+//                jTextField2.setText(rs.getString(13));
+//                
+//                SimpleDateFormat myFormat = new SimpleDateFormat("YYYY/MM/DD");
+//                Calendar cal = Calendar.getInstance();
+//                jTextField4.setText(myFormat.format(cal.getTime()));
+//                String dateBeforeString=rs.getString(9);
+//                java.util.Date dateBefore=myFormat.parse(dateBeforeString);
+//                String dateAfterString=myFormat.format(cal.getTime());
+//                java.util.Date dateAfter=myFormat.parse(dateAfterString);
+//                long difference = dateAfter.getTime() - dateBefore.getTime();
+//                int noOfDayStay=(int) (difference/(1000860*60*24));
+//                if(noOfDayStay==0)
+//                    noOfDayStay=1;
+//                jTextField7.setText(String.valueOf(noOfDayStay));
+//                float Price-Float.parseFloat(jTextField6>getText());
+//                
+//                jTextField8.setText(String.valueOf(noOfDayStay*price));
+//                jTextField9.setText(rs.getString(6));
+//                roomType=rs.getString(12);
+//                bed=rs.getString(11);
+//            }
+//            else
+//                JOptionPane.showMessageDialog(null, "Room Number is not Booked or Room Number Does not Exist");
+//        }
+//        catch(Exception e)
+//        {
+//            JoptionPane.showMessageDialog(null,e);
+//        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -282,69 +275,69 @@ public class CustomerCheckOut extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String name=JTextField2.getText();
-        String mobleNumber=jTextField5.getText();
-        String email=jTextField9.getText();
-        
-        String checkOut=jTextField4.getText();
-        String numberOfDaysStay=jTextField7.getText();
-        roomNo=jTextField1.getText();
-        Query="update customer set numberOfDaysStay='"+numberOdDaysStay+"',totalAmount='"+totalAmount+"',checkOut='"+checkOut"' where id='"+id+"'";
-        InsertUpdateDelete.setData(Query,"");
-        Query="update room set Status='Not Booked' where roomNo'"+roomNo+"'";
-        InsertUpdateDelete.setData(Query,"");
-        String path="E:\\";
-        com.itextpdf.text.Document doc=new com.itextpdf.text.Document();
-        try
-        {
-            pdfWriter.getInstance(doc, new FileOutputStream(path+""+id+".pdf"))
-            doc.open();
-            Paragraph paragraph1=new Paragraph("                   Ezday Hotel Management System");
-            doc.add(paragraph1);
-            Paragraph paragraph2=new Paragraph("***********************************************************************");
-            doc.add(paragraph2);
-            Paragraph paragraph3=new Paragraph("\tBill ID: "+id+"\nCustomer Details:\nName: "+name+"\nMobile Number: "+mobileNumber+"\nEmail: "+email+"\n");
-            doc.add(paragraph3);
-            doc.add(paragraph2);
-            Paragraph paragraph4=new Paragraph("\tRoom Details\nNumber: "+jTextField1.getText()+"\nType: "+roomType+"\nBed: "+bed+"\nPrice Per Day: "+jTextFiled6.getText()+"");
-            doc.add(paragraph4);
-            doc.add(paragraph2);
-            pdfPTable tbl=new PdfPTable(4);
-            tb1.addCell("Check IN Date: "+jTextField3.getText());
-            tb1.addCell("Check OUT Date: "+checkOut);
-            tb1.addCell("No of Days Stay: "+numberOfDaysStay);
-            tb1.addCell("Total Amount Paid: "+totalAmount);
-            doc.add(tb1);
-            doc.add(paragraph2);
-            Paragraph paragraph5= new Paragraph("Thanks you,Please Visit Again");
-            doc.add(paragraph5);
-        }
-        catch(Exception e)
-        {
-            JOption.showMessageDialog(null,e);
-        }
-        doc.close();
-        int a=jOptionPane.showConfirmDialog(null,"Do you want to print Bill","Select",JOptionPane.YES_NO_OPTION);
-        if(a==0)
-        {
-            try
-            {
-                if((new File("E:\\"+id+",pdf")).exists())
-                {
-                    Process p =Runtime
-                            .getRuntime()
-                            .exec("rundll32 url.dll,FilrProtocolHandler E:\\"+id+".pdf");
-                }
-                else
-                    System.out.println("File is not Exists");
-            }
-            catch(Exception e)
-            {
-                jOptionPane.showMessageDialog(null,e);
-            }
-        }
-        setVisible(false);
-        new CustomerCheckOut().setVisible(true);
+//        String name=JTextField2.getText();
+//        String mobleNumber=jTextField5.getText();
+//        String email=jTextField9.getText();
+//        
+//        String checkOut=jTextField4.getText();
+//        String numberOfDaysStay=jTextField7.getText();
+//        roomNo=jTextField1.getText();
+//        Query="update customer set numberOfDaysStay='"+numberOdDaysStay+"',totalAmount='"+totalAmount+"',checkOut='"+checkOut"' where id='"+id+"'";
+//        InsertUpdateDelete.setData(Query,"");
+//        Query="update room set Status='Not Booked' where roomNo'"+roomNo+"'";
+//        InsertUpdateDelete.setData(Query,"");
+//        String path="E:\\";
+//        com.itextpdf.text.Document doc=new com.itextpdf.text.Document();
+//        try
+//        {
+//            pdfWriter.getInstance(doc, new FileOutputStream(path+""+id+".pdf"))
+//            doc.open();
+//            Paragraph paragraph1=new Paragraph("                   Ezday Hotel Management System");
+//            doc.add(paragraph1);
+//            Paragraph paragraph2=new Paragraph("***********************************************************************");
+//            doc.add(paragraph2);
+//            Paragraph paragraph3=new Paragraph("\tBill ID: "+id+"\nCustomer Details:\nName: "+name+"\nMobile Number: "+mobileNumber+"\nEmail: "+email+"\n");
+//            doc.add(paragraph3);
+//            doc.add(paragraph2);
+//            Paragraph paragraph4=new Paragraph("\tRoom Details\nNumber: "+jTextField1.getText()+"\nType: "+roomType+"\nBed: "+bed+"\nPrice Per Day: "+jTextFiled6.getText()+"");
+//            doc.add(paragraph4);
+//            doc.add(paragraph2);
+//            pdfPTable tbl=new PdfPTable(4);
+//            tb1.addCell("Check IN Date: "+jTextField3.getText());
+//            tb1.addCell("Check OUT Date: "+checkOut);
+//            tb1.addCell("No of Days Stay: "+numberOfDaysStay);
+//            tb1.addCell("Total Amount Paid: "+totalAmount);
+//            doc.add(tb1);
+//            doc.add(paragraph2);
+//            Paragraph paragraph5= new Paragraph("Thanks you,Please Visit Again");
+//            doc.add(paragraph5);
+//        }
+//        catch(Exception e)
+//        {
+//            JOption.showMessageDialog(null,e);
+//        }
+//        doc.close();
+//        int a=jOptionPane.showConfirmDialog(null,"Do you want to print Bill","Select",JOptionPane.YES_NO_OPTION);
+//        if(a==0)
+//        {
+//            try
+//            {
+//                if((new File("E:\\"+id+",pdf")).exists())
+//                {
+//                    Process p =Runtime
+//                            .getRuntime()
+//                            .exec("rundll32 url.dll,FilrProtocolHandler E:\\"+id+".pdf");
+//                }
+//                else
+//                    System.out.println("File is not Exists");
+//            }
+//            catch(Exception e)
+//            {
+//                jOptionPane.showMessageDialog(null,e);
+//            }
+//        }
+//        setVisible(false);
+//        new CustomerCheckOut().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

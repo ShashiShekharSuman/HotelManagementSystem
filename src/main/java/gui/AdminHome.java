@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package gui;
 
 import javax.swing.JOptionPane;
-import project.*;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
-/**
- *
- * @author ishankk
- */
+
+
 public class AdminHome extends javax.swing.JFrame {
 
     /**
@@ -161,73 +154,73 @@ public class AdminHome extends javax.swing.JFrame {
         int a=JOptionPane.showConfirmDialog(null,"Do you really want to logout","Select",JOptionPane.YES_NO_OPTION);
         if(a==0){
             setVisible(false);
-            new login().setVisile(true);
+//            new login().setVisile(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-        ResultSet rs=Select.getData("Select from users");
-        DefaultTableModel model=(DefaultTableModel)jTable.getMode1();
-        model.setRowCount(0);
-        try
-        {
-                while(rs.next()){
-                    model.addRow(new Object[](rs.getString(1),rs.getString(2),rs.getString(4),rs.getString(6),rs.getString(7)));
-                }
-                rs.close();
-        }
-        
-        catch(Exception e)
-        {
-            JOptionpane.showMessageDialog(null,e);
-        }
+//        ResultSet rs=Select.getData("Select from users");
+//        DefaultTableModel model=(DefaultTableModel)jTable.getMode1();
+//        model.setRowCount(0);
+//        try
+//        {
+//                while(rs.next()){
+//                    model.addRow(new Object[](rs.getString(1),rs.getString(2),rs.getString(4),rs.getString(6),rs.getString(7));
+//                }
+//                rs.close();
+//        }
+//        
+//        catch(Exception e)
+//        {
+//            JOptionPane.showMessageDialog(null,e);
+//        }
     }//GEN-LAST:event_formComponentShown
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        String nameOrEmail=jTextField1.getText();
-        ResultSet rs=Select.getData("Select from users where name like '%"+nameorEmail+"%'or Email like '%"+nameorEmail+"%'");
-        DefaultTableModel model=(DefaultTableModel)jTable.getMode1();
-        model.setRowCount(0);
-        try
-        {
-                while(rs.next()){
-                    model.addRow(new Object[](rs.getString(1),rs.getString(2),rs.getString(4),rs.getString(6),rs.getString(7)));
-                }
-                rs.close();
-        }
-        
-        catch(Exception e)
-        {
-            JOptionpane.showMessageDialog(null,e);
-        }
+//        String nameOrEmail=jTextField1.getText();
+//        ResultSet rs=Select.getData("Select from users where name like '%"+nameorEmail+"%'or Email like '%"+nameorEmail+"%'");
+//        DefaultTableModel model=(DefaultTableModel)jTable.getMode1();
+//        model.setRowCount(0);
+//        try
+//        {
+//                while(rs.next()){
+//                    model.addRow(new Object[](rs.getString(1),rs.getString(2),rs.getString(4),rs.getString(6),rs.getString(7)));
+//                }
+//                rs.close();
+//        }
+//        
+//        catch(Exception e)
+//        {
+//            JOptionpane.showMessageDialog(null,e);
+//        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-         int index=jTable1.getSelectedRow();
-         TableModel mode1=jTable1.getModel();
-         String email=model.getValueAt(index,1).toString();
-         String status=model.getValueAt(index,4).toString();
-         if(status.equals("true"))
-             status="false";
-         else
-             status="true";
-         try
-         {
-             int a=JOptionPane.showCinfirmDialog(null,"Do you want to change status of "+email+"","Select",JOptionPane.YES_NO_OPTION);
-             if(a==0)
-             {
-                 InsertUpdateDelete.setData("update users set status='"+status+"'where email='"+email+"'","Status Changed Succesfully");
-                 setVisible(false);
-                 new AdminHome().setVisible(true);
-             }
-         }
-         catch(Exception e)
-         {
-             JOptionPane.showMessageDialog(null, e);
-         }
+//         int index=jTable1.getSelectedRow();
+//         TableModel mode1=jTable1.getModel();
+//         String email=model.getValueAt(index,1).toString();
+//         String status=model.getValueAt(index,4).toString();
+//         if(status.equals("true"))
+//             status="false";
+//         else
+//             status="true";
+//         try
+//         {
+//             int a=JOptionPane.showCinfirmDialog(null,"Do you want to change status of "+email+"","Select",JOptionPane.YES_NO_OPTION);
+//             if(a==0)
+//             {
+//                 InsertUpdateDelete.setData("update users set status='"+status+"'where email='"+email+"'","Status Changed Succesfully");
+//                 setVisible(false);
+//                 new AdminHome().setVisible(true);
+//             }
+//         }
+//         catch(Exception e)
+//         {
+//             JOptionPane.showMessageDialog(null, e);
+//         }
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**

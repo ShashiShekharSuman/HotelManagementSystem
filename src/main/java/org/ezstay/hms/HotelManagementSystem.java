@@ -4,6 +4,7 @@
 
 package org.ezstay.hms;
 
+import gui.SignUp;
 import javax.swing.JFrame;
 
 /**
@@ -13,12 +14,10 @@ import javax.swing.JFrame;
 public class HotelManagementSystem {
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
-        SignUp signUp = new SignUp();
-        frame.setSize(1000, 750);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.add(signUp, BorderLayout.CENTER);
-        frame.setVisible(true);
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                  new CustomerDetailBill().setVisible(true);
+//            }
+//        });
     }
 }

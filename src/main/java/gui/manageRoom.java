@@ -1,15 +1,8 @@
-import java.sql.*;
-//import javax.swing.table.DefaultTableMode1;
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package gui;
 
-/**
- *
- * @author yashv
- */
+import java.sql.*;
+
+
 public class manageRoom extends javax.swing.JFrame {
 
     /**
@@ -144,33 +137,33 @@ public class manageRoom extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String roomNo=jTextField1.getText();
-        String roomType=(String)jComboBox1.getSelectedItem();
-        String bed=(String)jComboBox2.getSelectedItem();
-        String price=jTextField2.getText();
-        
-        String Query="insert into room values('"+roomNo+"','"+roomType+"','"+bed+"','"+price+"','Not Booked')";
-        InsertUpdateDelete.setData(Query,"Successfully Updated");
-        setVisible(false);
-        new manageRoom().setVisible(true);
+//        String roomNo=jTextField1.getText();
+//        String roomType=(String)jComboBox1.getSelectedItem();
+//        String bed=(String)jComboBox2.getSelectedItem();
+//        String price=jTextField2.getText();
+//        
+//        String Query="insert into room values('"+roomNo+"','"+roomType+"','"+bed+"','"+price+"','Not Booked')";
+//        InsertUpdateDelete.setData(Query,"Successfully Updated");
+//        setVisible(false);
+//        new manageRoom().setVisible(true);
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-        ResultSet rs=Select.getData("Select *from room");
-        DefaultTableMode1 model=(DefaultTableMode1)jTable1.getMode1();
-        try
-        {
-        while(rs.next()){
-            model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)});
-        }
-        rs.close();
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        }
+//        ResultSet rs=Select.getData("Select *from room");
+//        DefaultTableMode1 model=(DefaultTableMode1)jTable1.getMode1();
+//        try
+//        {
+//        while(rs.next()){
+//            model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)});
+//        }
+//        rs.close();
+//        }
+//        catch(Exception e){
+//            JOptionPane.showMessageDialog(null,e);
+//        }
     }//GEN-LAST:event_formComponentShown
 
     /**
