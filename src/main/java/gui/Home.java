@@ -5,6 +5,8 @@
 
 package gui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ritiksh
@@ -105,7 +107,7 @@ public class Home extends javax.swing.JFrame {
         int a=JOptionPane.showConfirmDialog(null,"Do you Really Want to Logout","Select",JOptionPane.YES_NO_OPTION);
         if(a==0){
             setVisible(false);
-            new login().setVisible(true);
+            new SignIn().setVisible(true);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -145,10 +147,8 @@ public class Home extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Home().setVisible(true);
         });
     }
 

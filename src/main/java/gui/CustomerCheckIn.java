@@ -69,7 +69,6 @@ public class CustomerCheckIn extends javax.swing.JFrame {
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 21, 217, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\piyushvi\\Downloads\\HotelManagementSystem\\src\\main\\java\\images\\close.png")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
