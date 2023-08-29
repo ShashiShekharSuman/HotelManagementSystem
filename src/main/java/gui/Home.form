@@ -35,7 +35,7 @@
           <Color blue="0" green="33" red="66" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/manage room.png"/>
+          <Image iconType="3" name="/images/manage_room.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Rooms"/>
       </Properties>
